@@ -1,27 +1,31 @@
+package SubMenus;
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.Locale;
 
-/**
- * IMPORTANT: 
- *      O nome da classe deve ser "Main" para que a sua solução execute
- *      Class name must be "Main" for your solution to execute
- *      El nombre de la clase debe ser "Main" para que su solución ejecutar
- */
+
 public class Bhaskara {
 
-    private double a ;
-    private double b ;
-    private double c ;
+    Double a;
+    Double b;
+    Double c;
+    public Bhaskara() throws IOException{
 
-    public Bhaskara(double a, double b , double c) throws IOException{
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        if (this.a == 0) {
-            throw new IOException("A = 0");
+        System.out.println("Informe os valores para A , B e C da equação");
+        Scanner input= new Scanner(System.in);
+		
+		this.a = input.nextDouble();
+		this.b = input.nextDouble();
+		this.c = input.nextDouble();
+        if (a == 0) {
+            throw new IOException("\"A\" deve ser diferente de 0");
         }
         if (Double.isNaN(Math.sqrt(this.delta()))) {
-            throw new IOException("Não possui raiz real");
+                       
+            throw new IOException("Não possui raiz real: Delta é igual à " + this.delta());
         }
+        this.result();
+
     }
 
     public double delta(){
@@ -34,24 +38,7 @@ public class Bhaskara {
     public double x2(){
         return (-this.b-Math.sqrt(this.delta()))/(2*this.a);
     }
-
-    public static void main(String[] args) throws IOException {
-
-        /**
-         * Escreva a sua solução aqui
-         * Code your solution here
-         * Escriba su solución aquí
-         */
-        double a = Double.parseDouble(args[0]);
-        double b = Double.parseDouble(args[1]);
-        double c = Double.parseDouble(args[2]);
-
-       Bhaskara mascara = new Bhaskara(a,b,c);
-
-       System.out.println(mascara.delta());
-       System.out.println(mascara.x1());
-       System.out.println(mascara.x2());
-
-    }
-
+    public void result(){
+		System.out.println("As raizes da equação são : \n X'  = " + this.x1() + "\n X'' = " + this.x2());
+	}
 }

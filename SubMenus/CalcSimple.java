@@ -1,6 +1,7 @@
 package SubMenus;
 
 import java.util.Scanner;
+import java.util.Locale;
 import SubMenus.Formulas.*;
 
 
@@ -33,7 +34,5 @@ public class CalcSimple{
 			break;
 		}
 	}
-	public static void main(String[] args) {
-		
-	}
+	
 }

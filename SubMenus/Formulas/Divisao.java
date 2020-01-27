@@ -1,6 +1,8 @@
 package SubMenus.Formulas;
 
 import java.util.Scanner;
+import java.util.Locale;
+
 
 public class Divisao{
 
@@ -8,14 +10,16 @@ public class Divisao{
 		System.out.println("======= Valores para a divisão ================");
 
 		Scanner s = new Scanner(System.in);
-		int number1 = s.nextInt();
-		int number2 = s.nextInt();
+		s.useLocale(Locale.ENGLISH);
+
+		Double number1 = s.nextDouble();
+		Double number2 = s.nextDouble();
 		this.result(number1,number2); 
 
 	}
 
-	public void result(Integer number1,Integer number2){
-		int result = number1 / number2;
+	public void result(Double number1,Double number2){
+		Double result = number1 / number2;
 		System.out.println("A divisão de "+ number1 + " por " + number2 + " é : " + result);
 	}
 
